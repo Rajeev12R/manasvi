@@ -30,6 +30,7 @@ app.post("/send", async (req, res) => {
         user: process.env.EMAIL_USER, // your email
         pass: process.env.EMAIL_PASS, // your email password or app password
       },
+      tls: { rejectUnauthorized: false },
     });
 
     // Email options
