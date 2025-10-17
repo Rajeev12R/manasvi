@@ -5,7 +5,10 @@ import dotenv from "dotenv";
 dotenv.config({});
 
 const app = express();
-app.use(cors());
+app.use(cors({
+  origin: ["http://localhost:5173", "https://manasvi-mu.vercel.app/"],
+  methods: ["POST"]
+}));
 
 
 app.use(express.json());

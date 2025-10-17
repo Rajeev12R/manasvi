@@ -112,15 +112,15 @@ const Work = () => {
     },
     {
       id: 9,
-      title: "Women Changing Indian Bureaucracy",
+      title: "Maithili Mrinalini Creates History as First Female President of PUSU",
       category: "feature-human-stories",
       publication: "Shekunj",
-      date: "Feb 2024",
-      tags: ["Women Empowerment", "Governance", "Leadership", "Bureaucracy", "India"],
-      description: "Profiles of inspirational women officers like Smita Sabharwal who are redefining governance and public service in India.",
-      readTime: "7 min read",
-      image: "/images/women-bureaucracy.jpg",
-      link: "https://www.shekunj.com/article/news/smita-sabharwal-the-inspirational-ias-officer-redefining-indian-bureaucracy"
+      date: "Mar 2024",
+      tags: ["Women Leadership", "Student Politics", "Breaking Barriers", "Education", "Patna University"],
+      description: "Groundbreaking story of Maithili Mrinalini becoming the first woman president in the 107-year history of Patna University Students' Union, marking a historic moment for gender equality in student politics.",
+      readTime: "6 min read",
+      image: "/images/maithili-mrinalini.jpg",
+      link: "https://shekunj.com/article/news/maithili-mrinalini-creates-history-as-first-female-president-of-pusu?fbclid=PAQ0xDSwKtXxNleHRuA2FlbQIxMAABp7sJDclUVLdtHNYpcnqCzpwaCC0ren4IjdkRKiD5R_FiishDZY1ydYODCCEA_aem_tXtrJJWHiZLFJXwgYhOQRg"
     },
     {
       id: 10,
