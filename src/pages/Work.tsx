@@ -159,20 +159,6 @@ const Work = () => {
       link: "https://www.shekunj.com/article/news/barkha-dutts-life-story-more-than-a-journalist-a-revolution-in-herself"
     },
 
-    // 4. Documentary project
-    {
-      id: 13,
-      title: "Documentary: Voices from the Margins",
-      category: "documentary-project",
-      publication: "Independent Project",
-      date: "2024",
-      tags: ["Documentary", "Social Issues", "Marginalized Communities", "Human Rights"],
-      description: "A documentary project exploring the lives and struggles of marginalized communities across rural India.",
-      readTime: "45 min watch",
-      image: "/images/documentary.jpg",
-      link: "#"
-    },
-
     // 5. Field reports
     {
       id: 14,
@@ -213,35 +199,7 @@ const Work = () => {
       link: "https://shekunj.com/article/startup-and-business/dr-aarti-gupta-a-visionary-leader-empowering-women-entrepreneurs?fbclid=PAQ0xDSwKtXsNleHRuA2FlbQIxMAABp4toWh_NpnwntG9YiiFjOAyD5hiSo5vgyV_RQsikDPvsm0qnuh_JDOgsPcV6_aem_j6_eXsjsnIOd1H298O8LEQ"
     },
 
-    // 7. Print publications
-    {
-      id: 17,
-      title: "Print Edition: Political Analysis",
-      category: "print-publications",
-      publication: "Various Print Media",
-      date: "2023-2024",
-      tags: ["Print", "Politics", "Analysis", "Editorial", "Newspaper"],
-      description: "Collection of political analysis and editorial pieces published in various print newspapers and magazines.",
-      readTime: "Various",
-      image: "/images/print-publications.jpg",
-      link: "#"
-    },
-
-    // 8. Digital video and audio stories
-    {
-      id: 18,
-      title: "Video Series: Ground Reports",
-      category: "digital-video-audio",
-      publication: "The Publicat",
-      date: "2024",
-      tags: ["Video", "Audio", "Multimedia", "Field Reporting", "Documentary"],
-      description: "Digital video and audio stories covering ground reports and investigative pieces from various locations.",
-      readTime: "Various",
-      image: "/images/video-stories.jpg",
-      link: "https://instagram.com/?u=https%3A%2F%2Fthepublicat.com%2F%3Fp%3D2854%26fbclid%3DPAQ0xDSwKtJR9leHRuA2FlbQIxMQABp0On9mXcCWa53YLAGpje7Qu9T0BNeurHvmyYH6XpjBRjKhcZwtJwPwS9ZQ63_aem_9yOg1rcAY2HHgoZ7Flf-Nw&e=AT3bHEaGdsJa01gjS2C4uTv0_UjoywDZCuUgcQgXHGaXsL3h4x_FNGnHLaIxSlMYn7UgYcSn23ul9uO2p9lwJM51e8KBICQy5CmSE4KiiIg0s6VxINEEnK4"
-    },
-
-    // 9. Branded content and copywriting
+    // 8. Branded content and copywriting
     {
       id: 19,
       title: "What Makes a Good Office Chair: A Buyer's Guide",
