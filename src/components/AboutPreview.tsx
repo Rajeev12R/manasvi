@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import kelseyportrait from "@/assets/kelsey-portrait.jpg"
+import jiya2 from "@/assets/jiya2.jpg"
 
 const AboutPreview = () => {
   return (
@@ -11,7 +11,7 @@ const AboutPreview = () => {
           <div className="order-1 md:order-2 flex justify-center">
             <div className="w-full max-w-xs sm:max-w-sm md:max-w-md lg:max-w-lg">
               <img 
-                src={kelseyportrait} 
+                src={jiya2} 
                 alt="Manasvi Rathore" 
                 className="w-full h-auto object-cover rounded-full aspect-square shadow-lg"
               />

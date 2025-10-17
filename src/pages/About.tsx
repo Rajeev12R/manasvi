@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ContactCTA from "@/components/ContactCTA";
-import kelseyportrait from "@/assets/kelsey-portrait.jpg";
+import jiya2 from "@/assets/jiya2.jpg";
 
 const About = () => {
   return (
@@ -26,7 +26,7 @@ const About = () => {
               <div className="order-2 md:order-1 flex justify-center">
                 <div className="w-full max-w-xs sm:max-w-sm md:max-w-md">
                   <img
-                    src={kelseyportrait}
+                    src={jiya2}
                     alt="Manasvi Rathore"
                     className="w-full h-auto object-cover rounded-full aspect-square shadow-lg"
                   />

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import heroWoman from "@/assets/hero-woman.jpg";
+import jiya1 from "@/assets/jiya1.jpg";
 import heroWorkspace from "@/assets/hero-workspace.jpg";
 
 const Hero = () => {
@@ -35,7 +35,7 @@ const Hero = () => {
             {/* Main Image */}
             <div className="relative z-10 w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto lg:mx-0">
               <img 
-                src={heroWoman} 
+                src={jiya1} 
                 alt="Professional working at desk" 
                 className="w-full rounded-sm shadow-lg"
               />
