@@ -1,7 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Hero from "@/components/Hero";
 import ClientLogos from "@/components/ClientLogos";
-import DeepDive from "@/components/DeepDive";
+// import DeepDive from "@/components/DeepDive";
 import Testimonial from "@/components/Testimonial";
 import FeaturedWork from "@/components/FeaturedWork";
 import Services from "@/components/Services";
