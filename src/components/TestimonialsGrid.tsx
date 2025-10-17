@@ -4,13 +4,13 @@ const TestimonialsGrid = () => {
       quote: "Her words don’t just inform — they move you.",
       text: "Working with Manasvi was a reminder of what journalism should be. She brings sensitivity, research, and a powerful sense of humanity into every story. Her coverage for our platform sparked genuine conversation and engagement.",
       author: "Kirti Verma",
-      company: "HR, Shekunj Foundation"
+      company: "Project Management Executive, Shekunj Foundation"
     },
     {
       quote: "She captures emotion through every medium.",
       text: "From voiceovers to anchoring, Manasvi brings energy and authenticity to every project. Her clarity, tone, and preparation set a professional standard that elevates the entire team’s work.",
       author: "Simmi Ma'am",
-      company: "Producer, My FM 94.3"
+      company: "HR, My FM 94.3"
     },
     {
       quote: "Her curiosity and honesty make her stories unforgettable.",
@@ -21,7 +21,7 @@ const TestimonialsGrid = () => {
     {
       quote: "A storyteller with rare empathy and precision.",
       text: "Manasvi’s work consistently stands out — not just for her writing, but for her ability to understand people and tell their stories with care. Her articles for our foundation helped us connect deeply with our readers and donors.",
-      author: "Bhavya Diwedi",
+      author: "Bhavy Diwedi",
       company: "Editor, Publicat"
     },
   ];

@@ -48,8 +48,8 @@ const About = () => {
 
                 <p className="text-base sm:text-lg leading-relaxed sm:leading-loose">
                   Over the past few years, I've written 500+ articles — including 300+ SEO-optimized pieces —
-                  and collaborated with leading platforms such as <span className="font-semibold">The Publicat</span>,
-                  <span className="font-semibold"> Shekunj Foundation</span>, and <span className="font-semibold"> My FM 94.3</span>.
+                  and collaborated with leading platforms such as <span className="font-semibold">The Journalist</span>,
+                  <span className="font-semibold"> Shekunj Foundation</span> and <span className="font-semibold"> My FM 94.3</span>.
                   Whether behind a mic or in front of a story, I strive to blend clarity, empathy, and authenticity in everything I create.
                 </p>
               </div>
