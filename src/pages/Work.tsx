@@ -256,41 +256,43 @@ const Work = () => {
     <div className="min-h-screen">
       <Navigation />
       <main>
-        <section className="pt-32 pb-20 px-6">
+        <section className="pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
           <div className="container mx-auto max-w-6xl">
             {/* Header */}
-            <div className="text-center mb-16">
-              <h1 className="font-serif text-5xl md:text-6xl mb-6">Journalism Work</h1>
-              <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
+            <div className="text-center mb-12 sm:mb-16">
+              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight">
+                Journalism Work
+              </h1>
+              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
                 My work uncovers the essential stories behind the headlines, driven by a commitment to truth and a passion for impactful journalism.
               </p>
             </div>
 
-            {/* Search and Filters - Fixed Layout */}
-            <div className="mb-12">
-              <div className="flex flex-col lg:flex-row items-center justify-between gap-4 bg-muted/30 p-6 rounded-lg border">
+            {/* Search and Filters */}
+            <div className="mb-8 sm:mb-12">
+              <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 bg-muted/30 p-4 sm:p-6 rounded-lg border">
                 {/* Search Bar */}
                 <div className="flex-1 w-full lg:max-w-md">
                   <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-5 h-5" />
+                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4 sm:w-5 sm:h-5" />
                     <input
                       type="text"
                       placeholder="Search articles by title, tags, or content..."
                       value={searchTerm}
                       onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full pl-10 pr-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent bg-background"
+                      className="w-full pl-9 sm:pl-10 pr-4 py-2 sm:py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent bg-background text-sm sm:text-base"
                     />
                   </div>
                 </div>
 
                 {/* Category Filter */}
                 <div className="flex-1 w-full lg:max-w-md">
-                  <div className="flex items-center gap-3">
+                  <div className="flex items-center gap-2 sm:gap-3">
                     <Filter className="w-4 h-4 text-muted-foreground flex-shrink-0" />
                     <select
                       value={selectedCategory}
                       onChange={(e) => setSelectedCategory(e.target.value)}
-                      className="w-full border border-border rounded-lg px-4 py-3 focus:outline-none focus:ring-2 focus:ring-accent bg-background"
+                      className="w-full border border-border rounded-lg px-3 sm:px-4 py-2 sm:py-3 focus:outline-none focus:ring-2 focus:ring-accent bg-background text-sm sm:text-base"
                     >
                       {categories.map(category => (
                         <option key={category.id} value={category.id}>
@@ -306,7 +308,7 @@ const Work = () => {
                   <div className="w-full lg:w-auto">
                     <button
                       onClick={clearFilters}
-                      className="w-full lg:w-auto flex items-center gap-2 px-4 py-3 text-sm text-accent hover:bg-accent/10 rounded-lg transition-colors border border-accent/20"
+                      className="w-full lg:w-auto flex items-center justify-center gap-2 px-4 py-2 sm:py-3 text-sm text-accent hover:bg-accent/10 rounded-lg transition-colors border border-accent/20"
                     >
                       <X className="w-4 h-4" />
                       Clear filters
@@ -317,8 +319,8 @@ const Work = () => {
             </div>
 
             {/* Results Count */}
-            <div className="mb-8">
-              <p className="text-muted-foreground">
+            <div className="mb-6 sm:mb-8">
+              <p className="text-muted-foreground text-sm sm:text-base">
                 Showing {filteredProjects.length} of {allProjects.length} articles
                 {searchTerm && ` for "${searchTerm}"`}
                 {selectedCategory !== "all" && ` in ${categories.find(c => c.id === selectedCategory)?.name}`}
@@ -326,16 +328,16 @@ const Work = () => {
             </div>
 
             {/* Articles Grid */}
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
               {filteredProjects.map((project) => (
                 <article
                   key={project.id}
-                  className={`group cursor-pointer space-y-4 border border-transparent hover:border-accent rounded-lg p-4 transition-all duration-300 hover:shadow-lg ${project.link === "#" ? "opacity-80" : ""
+                  className={`group cursor-pointer space-y-3 sm:space-y-4 border border-transparent hover:border-accent rounded-lg p-3 sm:p-4 transition-all duration-300 hover:shadow-lg ${project.link === "#" ? "opacity-80" : ""
                     }`}
                   onClick={() => handleArticleClick(project.link)}
                 >
                   {/* Image Container */}
-                  <div className="bg-muted h-64 rounded-sm overflow-hidden relative">
+                  <div className="bg-muted h-48 sm:h-56 lg:h-64 rounded-sm overflow-hidden relative">
                     {project.image ? (
                       <img
                         src={project.image}
@@ -352,34 +354,34 @@ const Work = () => {
 
                     {/* External Link Icon */}
                     {project.link !== "#" && (
-                      <div className="absolute top-3 right-3 bg-black/50 text-white p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <ExternalLink className="w-4 h-4" />
+                      <div className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-black/50 text-white p-1 sm:p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
                       </div>
                     )}
                   </div>
 
                   {/* Content */}
-                  <div className="space-y-3">
+                  <div className="space-y-2 sm:space-y-3">
                     <div className="flex justify-between items-start">
-                      <h2 className="font-serif text-2xl leading-tight group-hover:text-accent transition-colors">
+                      <h2 className="font-serif text-lg sm:text-xl lg:text-2xl leading-tight group-hover:text-accent transition-colors line-clamp-2">
                         {project.title}
                       </h2>
                     </div>
 
-                    <div className="flex items-center justify-between text-sm text-muted-foreground">
+                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2 text-xs sm:text-sm text-muted-foreground">
                       <span className="font-medium text-accent">{project.publication}</span>
-                      <div className="flex items-center gap-4">
+                      <div className="flex items-center gap-2 sm:gap-4">
                         <span>{project.date}</span>
                         <span>{project.readTime}</span>
                       </div>
                     </div>
 
-                    <p className="text-muted-foreground leading-relaxed line-clamp-3">
+                    <p className="text-muted-foreground leading-relaxed line-clamp-2 sm:line-clamp-3 text-sm sm:text-base">
                       {project.description}
                     </p>
 
                     <div className="flex flex-wrap gap-1">
-                      {project.tags.map((tag, tagIndex) => (
+                      {project.tags.slice(0, 3).map((tag, tagIndex) => (
                         <span
                           key={tagIndex}
                           className="text-xs bg-muted px-2 py-1 rounded-full hover:bg-accent hover:text-white transition-colors cursor-default"
@@ -387,17 +389,22 @@ const Work = () => {
                           {tag}
                         </span>
                       ))}
+                      {project.tags.length > 3 && (
+                        <span className="text-xs bg-muted px-2 py-1 rounded-full text-muted-foreground">
+                          +{project.tags.length - 3}
+                        </span>
+                      )}
                     </div>
 
                     {/* Read More Link */}
                     {project.link !== "#" && (
-                      <div className="pt-2">
+                      <div className="pt-1 sm:pt-2">
                         <button
                           onClick={(e) => {
                             e.stopPropagation();
                             handleArticleClick(project.link);
                           }}
-                          className="text-accent hover:underline text-sm font-medium flex items-center gap-1"
+                          className="text-accent hover:underline text-xs sm:text-sm font-medium flex items-center gap-1"
                         >
                           Read full article <ExternalLink className="w-3 h-3" />
                         </button>
@@ -409,11 +416,11 @@ const Work = () => {
             </div>
 
             {filteredProjects.length === 0 && (
-              <div className="text-center py-12">
-                <p className="text-lg text-muted-foreground">No articles found matching your criteria.</p>
+              <div className="text-center py-12 sm:py-16">
+                <p className="text-lg text-muted-foreground mb-4">No articles found matching your criteria.</p>
                 <button
                   onClick={clearFilters}
-                  className="mt-4 text-accent hover:underline flex items-center gap-2 mx-auto"
+                  className="text-accent hover:underline flex items-center gap-2 mx-auto text-sm sm:text-base"
                 >
                   <X className="w-4 h-4" />
                   Clear all filters
@@ -422,9 +429,9 @@ const Work = () => {
             )}
 
             {/* Footer Text */}
-            <div className="mt-20 text-center">
-              <p className="text-lg font-serif mb-4">Comprehensive journalism across 9 specialized categories</p>
-              <p className="text-muted-foreground max-w-2xl mx-auto">
+            <div className="mt-12 sm:mt-16 lg:mt-20 text-center">
+              <p className="text-lg sm:text-xl font-serif mb-3 sm:mb-4">Comprehensive journalism across various categories</p>
+              <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
                 From breaking news investigations to in-depth features and multimedia projects,
                 each piece represents a commitment to ethical reporting and impactful storytelling.
               </p>
