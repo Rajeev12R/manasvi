@@ -24,7 +24,7 @@ const Contact = () => {
     setStatus("Sending...");
 
     try {
-      const res = await fetch("https://manasvi-g9nu.vercel.app/send", { // replace with your backend URL
+      const res = await fetch("https://manasvi-3jq4.onrender.com/send", { // replace with your backend URL
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
