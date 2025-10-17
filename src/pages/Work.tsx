@@ -244,15 +244,15 @@ const Work = () => {
     // 9. Branded content and copywriting
     {
       id: 19,
-      title: "Brand Campaign: Social Initiatives",
+      title: "What Makes a Good Office Chair: A Buyer's Guide",
       category: "branded-content",
-      publication: "Various Clients",
-      date: "2023-2024",
-      tags: ["Branded Content", "Copywriting", "Marketing", "Social Impact", "Campaign"],
-      description: "Branded content and copywriting projects for various social initiatives and corporate social responsibility campaigns.",
-      readTime: "Various",
-      image: "/images/branded-content.jpg",
-      link: "#"
+      publication: "LinkedIn",
+      date: "2024",
+      tags: ["Ergonomics", "Workplace Wellness", "Office Furniture", "Buyer's Guide", "Product Review"],
+      description: "Comprehensive buyer's guide exploring the essential features of quality office chairs, focusing on ergonomics, comfort, and long-term health benefits for professionals.",
+      readTime: "5 min read",
+      image: "/images/office-chair-guide.jpg",
+      link: "https://www.linkedin.com/pulse/what-makes-good-office-chair-buyers-guide-from-y3cvf"
     }
   ];
 
