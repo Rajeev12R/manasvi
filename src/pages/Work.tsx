@@ -2,7 +2,7 @@ import { useState, useMemo } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ContactCTA from "@/components/ContactCTA";
-import { Search, Filter, Calendar, BookOpen, ExternalLink, X } from "lucide-react";
+import { Search, Filter, ExternalLink, X } from "lucide-react";
 
 const Work = () => {
   const [searchTerm, setSearchTerm] = useState("");
