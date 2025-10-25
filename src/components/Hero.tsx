@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import jiya1 from "@/assets/jiya1.jpg";
-import heroWorkspace from "@/assets/hero-workspace.jpg";
+import heroWorkspace from "@/assets/hero-workspace5.jpg";
 
 const Hero = () => {
   return (
@@ -44,7 +44,7 @@ const Hero = () => {
             {/* Overlay Image - Smaller on Mobile */}
             <div className="absolute -bottom-4 -right-2 sm:-bottom-6 sm:-right-4 lg:-bottom-8 lg:right-4 w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 z-20">
               <img 
-                src={heroWorkspace} 
+                src={heroWorkspace}
                 alt="Minimal workspace" 
                 className="w-full h-full object-cover rounded-sm shadow-lg"
               />
