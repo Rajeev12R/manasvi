@@ -2,14 +2,14 @@ import { useState, useMemo } from "react";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ContactCTA from "@/components/ContactCTA";
-import { Search, Filter, ExternalLink, X } from "lucide-react";
+import {ExternalLink, X, ArrowLeft } from "lucide-react";
 
 const Work = () => {
   const [searchTerm, setSearchTerm] = useState("");
   const [selectedCategory, setSelectedCategory] = useState("all");
+  const [currentView, setCurrentView] = useState<"categories" | "articles">("categories");
 
   const allProjects = [
-    // 1. Neet 2024 paper leak - follow ups
     {
       id: 1,
       title: "NEET 2024 Paper Leak: Maharashtra Connection",
@@ -56,7 +56,7 @@ const Work = () => {
       description: "Live coverage of Supreme Court hearings regarding the NEET paper leak case and student petitions.",
       readTime: "5 min read",
       image: "/images/neet-supreme-court.jpg",
-      link: "https://thepublicat.com/%e0%a4%b8%e0%a5%81%e0%a4%aa%e0%a5%8d%e0%a4%b0%e0%a5%80%e0%a4%ae-%e0%a4%95%e0%a5%8b%e0%a4%b0%e0%a5%8d%e0%a4%9f-%e0%a4%ae%e0%a5%87%e0%a4%82-neet-%e0%a4%aa%e0%a5%87%e0%a4%aa%e0%a4%b0-%e0%a4%b2%e0%a5%80/?fbclid=PAQ0xDSwKtJSxleHRuA2FlbQIxMQABp3aabCWOzUza-vX28AA88NEXUrdsMPfMAlE-GJqIOegbtq4tgyD-HZNnKduu_aem_amxlD8Y3vG4LSb4agzTHdw"
+      link: "https://thepublicat.com/%e0%a4%b8%e0%a5%81%e0%a4%aa%e0%a5%8d%e0%a4%b0%e0%a5%80%e0%a4%ae-%e0%a4%95%e0%a5%8d%e0%a4%b0%e0%a5%8d%e0%a4%9f-%e0%a4%ae%e0%a5%87%e0%a4%82-neet-%e0%a4%aa%e0%a5%87%e0%a4%aa%e0%a4%b0-%e0%a4%b2%e0%a5%80/?fbclid=PAQ0xDSwKtJSxleHRuA2FlbQIxMQABp3aabCWOzUza-vX28AA88NEXUrdsMPfMAlE-GJqIOegbtq4tgyD-HZNnKduu_aem_amxlD8Y3vG4LSb4agzTHdw"
     },
 
     // 2. News reports
@@ -69,7 +69,7 @@ const Work = () => {
       tags: ["Defense", "Security", "Military", "Terrorism", "Operation"],
       description: "Exclusive coverage of historic counter-terrorism operations led by Colonel Sofiya Qureshi and Wing Commander Vyomika Singh.",
       readTime: "5 min read",
-      image: "/images/operation-sindoor.jpg",
+      image: "/images/operation-sindoor.png",
       link: "https://www.shekunj.com/article/news/operation-sindoor-colonel-sofiya-qureshi-and-wing-commander-vyomika-singh-lead-historic-strikes-against-terrorism"
     },
     {
@@ -81,7 +81,7 @@ const Work = () => {
       tags: ["Politics", "Budget", "Policy", "Madhya Pradesh", "Development"],
       description: "Detailed analysis of Modi 3.0's first budget and its implications for Madhya Pradesh's development and infrastructure projects.",
       readTime: "10 min read",
-      image: "/images/mp-budget.jpg",
+      image: "/images/mp-budget.png",
       link: "https://journalistav.com/what-did-madhya-pradesh-get-in-the-first-budget-of-modi-3-0-know-all-that-is-important-for-you/?fbclid=PAQ0xDSwKtZDVleHRuA2FlbQIxMQABp_dUJyh7twn9kTgKVff7Mbqx7cvkaVInKoqYEIEfvQVyZFb3fo4ckGsPZi24_aem_3H41EtIMz2M_l7UoqyPz0g"
     },
     {
@@ -169,7 +169,7 @@ const Work = () => {
       tags: ["Corruption", "Investigation", "Public Works", "Lok Yukta", "Madhya Pradesh"],
       description: "Field report on corruption in public works department, based on Lok Yukta's operation and ground-level investigation.",
       readTime: "6 min read",
-      image: "/images/pwd-corruption.jpg",
+      image: "/images/pwd-corruption.png",
       link: "https://journalistav.com/narmadapuram-pwd-engineer-was-taking-huge-amount-in-return-for-work-lok-yukta-team-caught-him-red-handed/?fbclid=PAQ0xDSwKtZG5leHRuA2FlbQIxMAABp7sJDclUVLdtHNYpcnqCzpwaCC0ren4IjdkRKiD5R_FiishDZY1ydYODCCEA_aem_tXtrJJWHiZLFJXwgYhOQRg"
     },
     {
@@ -181,7 +181,7 @@ const Work = () => {
       tags: ["Education", "Protests", "Policy", "Students", "Reform"],
       description: "Coverage of student objections to examination patterns and the ongoing dialogue around education reform in India.",
       readTime: "5 min read",
-      image: "/images/education-reform.jpg",
+      image: "/images/education-reform.png",
       link: "https://journalistav.com/ma-students-of-davv-expressed-objection-on-out-of-syllabus-questions-students-requested-for-help/?fbclid=PAQ0xDSwKtZFpleHRuA2FlbQIxMAABpz__-0HH1GqwvSpriPWVP067mEGdBmu7dPE258WJfWe0akuqa3rF025artFT_aem__aVhDI1fc6tbAbUGeVkMwg"
     },
 
@@ -209,22 +209,75 @@ const Work = () => {
       tags: ["Ergonomics", "Workplace Wellness", "Office Furniture", "Buyer's Guide", "Product Review"],
       description: "Comprehensive buyer's guide exploring the essential features of quality office chairs, focusing on ergonomics, comfort, and long-term health benefits for professionals.",
       readTime: "5 min read",
-      image: "/images/office-chair-guide.jpg",
+      image: "/images/office-chair-guide.jpeg",
       link: "https://www.linkedin.com/pulse/what-makes-good-office-chair-buyers-guide-from-y3cvf"
     }
   ];
 
   const categories = [
-    { id: "all", name: "All Work", count: allProjects.length },
-    { id: "neet-paper-leak", name: "NEET 2024 Paper Leak - Follow Ups", count: allProjects.filter(p => p.category === "neet-paper-leak").length },
-    { id: "news-reports", name: "News Reports", count: allProjects.filter(p => p.category === "news-reports").length },
-    { id: "feature-human-stories", name: "Feature and Human Stories", count: allProjects.filter(p => p.category === "feature-human-stories").length },
-    { id: "documentary-project", name: "Documentary Project", count: allProjects.filter(p => p.category === "documentary-project").length },
-    { id: "field-reports", name: "Field Reports", count: allProjects.filter(p => p.category === "field-reports").length },
-    { id: "digital-journalism", name: "Digital Journalism", count: allProjects.filter(p => p.category === "digital-journalism").length },
-    { id: "print-publications", name: "Print Publications", count: allProjects.filter(p => p.category === "print-publications").length },
-    { id: "digital-video-audio", name: "Digital Video and Audio Stories", count: allProjects.filter(p => p.category === "digital-video-audio").length },
-    { id: "branded-content", name: "Branded Content and Copywriting", count: allProjects.filter(p => p.category === "branded-content").length }
+    { 
+      id: "neet-paper-leak", 
+      name: "NEET 2024 Paper Leak - Follow Ups", 
+      count: allProjects.filter(p => p.category === "neet-paper-leak").length,
+      image: "/images/neet.jpg",
+      description: "Comprehensive coverage of the NEET 2024 paper leak scandal, including investigations, court hearings, and student impacts."
+    },
+    { 
+      id: "news-reports", 
+      name: "News Reports", 
+      count: allProjects.filter(p => p.category === "news-reports").length,
+      image: "/images/news.jpg",
+      description: "Breaking news coverage and timely reports on significant events and developments."
+    },
+    { 
+      id: "feature-human-stories", 
+      name: "Feature and Human Stories", 
+      count: allProjects.filter(p => p.category === "feature-human-stories").length,
+      image: "/images/humanstories.jpg",
+      description: "In-depth profiles and human-interest stories highlighting remarkable individuals and their journeys."
+    },
+    { 
+      id: "documentary-project", 
+      name: "Documentary Project", 
+      count: allProjects.filter(p => p.category === "documentary-project").length,
+      image: "/images/documentary.jpg",
+      description: "Long-form documentary projects exploring complex social issues and narratives."
+    },
+    { 
+      id: "field-reports", 
+      name: "Field Reports", 
+      count: allProjects.filter(p => p.category === "field-reports").length,
+      image: "/images/pwd-corruption.jpg",
+      description: "On-ground reporting and investigations from various locations and situations."
+    },
+    { 
+      id: "digital-journalism", 
+      name: "Digital Journalism", 
+      count: allProjects.filter(p => p.category === "digital-journalism").length,
+      image: "/images/digitaljournalism.jpg",
+      description: "Digital-first storytelling and multimedia journalism projects."
+    },
+    { 
+      id: "print-publications", 
+      name: "Print Publications", 
+      count: allProjects.filter(p => p.category === "print-publications").length,
+      image: "/images/printpublication.jpg",
+      description: "Work published in traditional print media and newspapers."
+    },
+    { 
+      id: "digital-video-audio", 
+      name: "Digital Video and Audio Stories", 
+      count: allProjects.filter(p => p.category === "digital-video-audio").length,
+      image: "/images/video-audio.jpg",
+      description: "Multimedia storytelling through video documentaries and audio podcasts."
+    },
+    { 
+      id: "branded-content", 
+      name: "Branded Content and Copywriting", 
+      count: allProjects.filter(p => p.category === "branded-content").length,
+      image: "/images/brandandcontent.jpg",
+      description: "Professional copywriting and branded content creation for various platforms."
+    }
   ];
 
   const filteredProjects = useMemo(() => {
@@ -245,12 +298,23 @@ const Work = () => {
     }
   };
 
+  const handleCategoryClick = (categoryId: string) => {
+    setSelectedCategory(categoryId);
+    setCurrentView("articles");
+  };
+
+  const handleBackToCategories = () => {
+    setCurrentView("categories");
+    setSelectedCategory("all");
+    setSearchTerm("");
+  };
+
   const clearFilters = () => {
     setSearchTerm("");
     setSelectedCategory("all");
   };
 
-  const hasActiveFilters = searchTerm || selectedCategory !== "all";
+  const currentCategory = categories.find(cat => cat.id === selectedCategory);
 
   return (
     <div className="min-h-screen">
@@ -258,184 +322,223 @@ const Work = () => {
       <main>
         <section className="pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
           <div className="container mx-auto max-w-6xl">
-            {/* Header */}
-            <div className="text-center mb-12 sm:mb-16">
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight">
-                Journalism Work
-              </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                My work uncovers the essential stories behind the headlines, driven by a commitment to truth and a passion for impactful journalism.
-              </p>
-            </div>
-
-            {/* Search and Filters */}
-            <div className="mb-8 sm:mb-12">
-              <div className="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-4 bg-muted/30 p-4 sm:p-6 rounded-lg border">
-                {/* Search Bar */}
-                <div className="flex-1 w-full lg:max-w-md">
-                  <div className="relative">
-                    <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground w-4 h-4 sm:w-5 sm:h-5" />
-                    <input
-                      type="text"
-                      placeholder="Search articles by title, tags, or content..."
-                      value={searchTerm}
-                      onChange={(e) => setSearchTerm(e.target.value)}
-                      className="w-full pl-9 sm:pl-10 pr-4 py-2 sm:py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent bg-background text-sm sm:text-base"
-                    />
-                  </div>
-                </div>
-
-                {/* Category Filter */}
-                <div className="flex-1 w-full lg:max-w-md">
-                  <div className="flex items-center gap-2 sm:gap-3">
-                    <Filter className="w-4 h-4 text-muted-foreground flex-shrink-0" />
-                    <select
-                      value={selectedCategory}
-                      onChange={(e) => setSelectedCategory(e.target.value)}
-                      className="w-full border border-border rounded-lg px-3 sm:px-4 py-2 sm:py-3 focus:outline-none focus:ring-2 focus:ring-accent bg-background text-sm sm:text-base"
-                    >
-                      {categories.map(category => (
-                        <option key={category.id} value={category.id}>
-                          {category.name} ({category.count})
-                        </option>
-                      ))}
-                    </select>
-                  </div>
-                </div>
-
-                {/* Clear Filters Button */}
-                {hasActiveFilters && (
-                  <div className="w-full lg:w-auto">
-                    <button
-                      onClick={clearFilters}
-                      className="w-full lg:w-auto flex items-center justify-center gap-2 px-4 py-2 sm:py-3 text-sm text-accent hover:bg-accent/10 rounded-lg transition-colors border border-accent/20"
-                    >
-                      <X className="w-4 h-4" />
-                      Clear filters
-                    </button>
-                  </div>
-                )}
-              </div>
-            </div>
-
-            {/* Results Count */}
-            <div className="mb-6 sm:mb-8">
-              <p className="text-muted-foreground text-sm sm:text-base">
-                Showing {filteredProjects.length} of {allProjects.length} articles
-                {searchTerm && ` for "${searchTerm}"`}
-                {selectedCategory !== "all" && ` in ${categories.find(c => c.id === selectedCategory)?.name}`}
-              </p>
-            </div>
-
-            {/* Articles Grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
-              {filteredProjects.map((project) => (
-                <article
-                  key={project.id}
-                  className={`group cursor-pointer space-y-3 sm:space-y-4 border border-transparent hover:border-accent rounded-lg p-3 sm:p-4 transition-all duration-300 hover:shadow-lg ${project.link === "#" ? "opacity-80" : ""
-                    }`}
-                  onClick={() => handleArticleClick(project.link)}
-                >
-                  {/* Image Container */}
-                  <div className="bg-muted h-48 sm:h-56 lg:h-64 rounded-sm overflow-hidden relative">
-                    {project.image ? (
-                      <img
-                        src={project.image}
-                        alt={project.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                        onError={(e) => {
-                          e.currentTarget.style.display = 'none';
-                          e.currentTarget.nextElementSibling?.classList.remove('hidden');
-                        }}
-                      />
-                    ) : null}
-                    {/* Fallback Gradient */}
-                    <div className={`w-full h-full bg-gradient-to-br from-cream to-muted group-hover:scale-105 transition-transform duration-300 ${project.image ? 'hidden' : ''}`} />
-
-                    {/* External Link Icon */}
-                    {project.link !== "#" && (
-                      <div className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-black/50 text-white p-1 sm:p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                        <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
-                      </div>
-                    )}
-                  </div>
-
-                  {/* Content */}
-                  <div className="space-y-2 sm:space-y-3">
-                    <div className="flex justify-between items-start">
-                      <h2 className="font-serif text-lg sm:text-xl lg:text-2xl leading-tight group-hover:text-accent transition-colors line-clamp-2">
-                        {project.title}
-                      </h2>
-                    </div>
-
-                    <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2 text-xs sm:text-sm text-muted-foreground">
-                      <span className="font-medium text-accent">{project.publication}</span>
-                      <div className="flex items-center gap-2 sm:gap-4">
-                        <span>{project.date}</span>
-                        <span>{project.readTime}</span>
-                      </div>
-                    </div>
-
-                    <p className="text-muted-foreground leading-relaxed line-clamp-2 sm:line-clamp-3 text-sm sm:text-base">
-                      {project.description}
-                    </p>
-
-                    <div className="flex flex-wrap gap-1">
-                      {project.tags.slice(0, 3).map((tag, tagIndex) => (
-                        <span
-                          key={tagIndex}
-                          className="text-xs bg-muted px-2 py-1 rounded-full hover:bg-accent hover:text-white transition-colors cursor-default"
-                        >
-                          {tag}
-                        </span>
-                      ))}
-                      {project.tags.length > 3 && (
-                        <span className="text-xs bg-muted px-2 py-1 rounded-full text-muted-foreground">
-                          +{project.tags.length - 3}
-                        </span>
-                      )}
-                    </div>
-
-                    {/* Read More Link */}
-                    {project.link !== "#" && (
-                      <div className="pt-1 sm:pt-2">
-                        <button
-                          onClick={(e) => {
-                            e.stopPropagation();
-                            handleArticleClick(project.link);
-                          }}
-                          className="text-accent hover:underline text-xs sm:text-sm font-medium flex items-center gap-1"
-                        >
-                          Read full article <ExternalLink className="w-3 h-3" />
-                        </button>
-                      </div>
-                    )}
-                  </div>
-                </article>
-              ))}
-            </div>
-
-            {filteredProjects.length === 0 && (
-              <div className="text-center py-12 sm:py-16">
-                <p className="text-lg text-muted-foreground mb-4">No articles found matching your criteria.</p>
-                <button
-                  onClick={clearFilters}
-                  className="text-accent hover:underline flex items-center gap-2 mx-auto text-sm sm:text-base"
-                >
-                  <X className="w-4 h-4" />
-                  Clear all filters
-                </button>
+            {/* Header - Only show in categories view */}
+            {currentView === "categories" && (
+              <div className="text-center mb-8 sm:mb-12">
+                <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight">
+                  Journalism Work
+                </h1>
+                <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
+                  My work uncovers the essential stories behind the headlines, driven by a commitment to truth and a passion for impactful journalism.
+                </p>
               </div>
             )}
 
-            {/* Footer Text */}
-            <div className="mt-12 sm:mt-16 lg:mt-20 text-center">
-              <p className="text-lg sm:text-xl font-serif mb-3 sm:mb-4">Comprehensive journalism across various categories</p>
-              <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
-                From breaking news investigations to in-depth features and multimedia projects,
-                each piece represents a commitment to ethical reporting and impactful storytelling.
-              </p>
-            </div>
+            {/* Search and Filters - Only show in articles view */}
+            {currentView === "articles" && (
+              <div className="mb-6 sm:mb-8">
+                  {/* Back Button */}
+                  <div className="w-full lg:w-auto">
+                    <button
+                      onClick={handleBackToCategories}
+                      className="w-full lg:w-auto flex items-center justify-center gap-2 px-4 py-2 sm:py-3 text-sm text-accent hover:bg-accent/10 rounded-lg transition-colors border border-accent/20"
+                    >
+                      <ArrowLeft className="w-4 h-4" />
+                      Back to Categories
+                    </button>
+                  </div>
+              </div>
+            )}
+
+            {/* Category View */}
+            {currentView === "categories" && (
+              <>
+                <div className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4 lg:gap-6">
+                  {categories.map((category) => (
+                    <div
+                      key={category.id}
+                      className="group cursor-pointer bg-background border border-border rounded-lg overflow-hidden hover:shadow-lg transition-all duration-300 hover:border-accent"
+                      onClick={() => handleCategoryClick(category.id)}
+                    >
+                      {/* Image Container */}
+                      <div className="bg-muted h-32 sm:h-40 lg:h-48 overflow-hidden relative">
+                        {category.image ? (
+                          <img
+                            src={category.image}
+                            alt={category.name}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                              e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                            }}
+                          />
+                        ) : null}
+                        {/* Fallback Gradient */}
+                        <div className={`w-full h-full bg-gradient-to-br from-cream to-muted group-hover:scale-105 transition-transform duration-300 ${category.image ? 'hidden' : ''}`} />
+                        
+                        {/* Article Count Badge */}
+                        <div className="absolute top-2 right-2 bg-black/70 text-white px-1.5 py-0.5 rounded-full text-xs font-medium">
+                          {category.count}
+                        </div>
+                      </div>
+
+                      {/* Content */}
+                      <div className="p-3 sm:p-4 lg:p-6">
+                        <h3 className="font-serif text-sm sm:text-base lg:text-xl mb-1 sm:mb-2 group-hover:text-accent transition-colors line-clamp-2">
+                          {category.name}
+                        </h3>
+                        <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed mb-2 sm:mb-3 line-clamp-2">
+                          {category.description}
+                        </p>
+                        <div className="flex items-center justify-between">
+                          <span className="text-accent text-xs sm:text-sm font-medium">
+                            View
+                          </span>
+                          <div className="w-4 h-4 sm:w-5 sm:h-5 lg:w-6 lg:h-6 bg-accent text-white rounded-full flex items-center justify-center text-xs transform group-hover:scale-110 transition-transform">
+                            →
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </>
+            )}
+
+            {/* Articles View */}
+            {currentView === "articles" && (
+              <>
+                {/* Category Header */}
+                <div className="mb-6 sm:mb-8">
+                  <h2 className="font-serif text-2xl sm:text-3xl lg:text-4xl mb-2">
+                    {currentCategory?.name}
+                  </h2>
+                  <p className="text-muted-foreground text-sm sm:text-base">
+                    {currentCategory?.description}
+                  </p>
+                </div>
+
+                {/* Results Count */}
+                <div className="mb-6 sm:mb-8">
+                  <p className="text-muted-foreground text-sm sm:text-base">
+                    Showing {filteredProjects.length} of {currentCategory?.count} articles
+                    {searchTerm && ` for "${searchTerm}"`}
+                  </p>
+                </div>
+
+                {/* Articles Grid */}
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8">
+                  {filteredProjects.map((project) => (
+                    <article
+                      key={project.id}
+                      className={`group cursor-pointer space-y-3 sm:space-y-4 border border-transparent hover:border-accent rounded-lg p-3 sm:p-4 transition-all duration-300 hover:shadow-lg ${project.link === "#" ? "opacity-80" : ""
+                        }`}
+                      onClick={() => handleArticleClick(project.link)}
+                    >
+                      {/* Image Container */}
+                      <div className="bg-muted h-48 sm:h-56 lg:h-64 rounded-sm overflow-hidden relative">
+                        {project.image ? (
+                          <img
+                            src={project.image}
+                            alt={project.title}
+                            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                            onError={(e) => {
+                              e.currentTarget.style.display = 'none';
+                              e.currentTarget.nextElementSibling?.classList.remove('hidden');
+                            }}
+                          />
+                        ) : null}
+                        {/* Fallback Gradient */}
+                        <div className={`w-full h-full bg-gradient-to-br from-cream to-muted group-hover:scale-105 transition-transform duration-300 ${project.image ? 'hidden' : ''}`} />
+
+                        {/* External Link Icon */}
+                        {project.link !== "#" && (
+                          <div className="absolute top-2 right-2 sm:top-3 sm:right-3 bg-black/50 text-white p-1 sm:p-1.5 rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                            <ExternalLink className="w-3 h-3 sm:w-4 sm:h-4" />
+                          </div>
+                        )}
+                      </div>
+
+                      {/* Content */}
+                      <div className="space-y-2 sm:space-y-3">
+                        <div className="flex justify-between items-start">
+                          <h2 className="font-serif text-lg sm:text-xl lg:text-2xl leading-tight group-hover:text-accent transition-colors line-clamp-2">
+                            {project.title}
+                          </h2>
+                        </div>
+
+                        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 sm:gap-2 text-xs sm:text-sm text-muted-foreground">
+                          <span className="font-medium text-accent">{project.publication}</span>
+                          <div className="flex items-center gap-2 sm:gap-4">
+                            <span>{project.date}</span>
+                            <span>{project.readTime}</span>
+                          </div>
+                        </div>
+
+                        <p className="text-muted-foreground leading-relaxed line-clamp-2 sm:line-clamp-3 text-sm sm:text-base">
+                          {project.description}
+                        </p>
+
+                        <div className="flex flex-wrap gap-1">
+                          {project.tags.slice(0, 3).map((tag, tagIndex) => (
+                            <span
+                              key={tagIndex}
+                              className="text-xs bg-muted px-2 py-1 rounded-full hover:bg-accent hover:text-white transition-colors cursor-default"
+                            >
+                              {tag}
+                            </span>
+                          ))}
+                          {project.tags.length > 3 && (
+                            <span className="text-xs bg-muted px-2 py-1 rounded-full text-muted-foreground">
+                              +{project.tags.length - 3}
+                            </span>
+                          )}
+                        </div>
+
+                        {/* Read More Link */}
+                        {project.link !== "#" && (
+                          <div className="pt-1 sm:pt-2">
+                            <button
+                              onClick={(e) => {
+                                e.stopPropagation();
+                                handleArticleClick(project.link);
+                              }}
+                              className="text-accent hover:underline text-xs sm:text-sm font-medium flex items-center gap-1"
+                            >
+                              Read full article <ExternalLink className="w-3 h-3" />
+                            </button>
+                          </div>
+                        )}
+                      </div>
+                    </article>
+                  ))}
+                </div>
+
+                {filteredProjects.length === 0 && (
+                  <div className="text-center py-12 sm:py-16">
+                    <p className="text-lg text-muted-foreground mb-4">No articles found matching your criteria.</p>
+                    <button
+                      onClick={clearFilters}
+                      className="text-accent hover:underline flex items-center gap-2 mx-auto text-sm sm:text-base"
+                    >
+                      <X className="w-4 h-4" />
+                      Clear all filters
+                    </button>
+                  </div>
+                )}
+              </>
+            )}
+
+            {/* Footer Text - Only show in categories view */}
+            {currentView === "categories" && (
+              <div className="mt-8 sm:mt-12 lg:mt-16 text-center">
+                <p className="text-lg sm:text-xl font-serif mb-3 sm:mb-4">Comprehensive journalism across various categories</p>
+                <p className="text-muted-foreground max-w-2xl mx-auto text-sm sm:text-base leading-relaxed">
+                  From breaking news investigations to in-depth features and multimedia projects,
+                  each piece represents a commitment to ethical reporting and impactful storytelling.
+                </p>
+              </div>
+            )}
           </div>
         </section>
 

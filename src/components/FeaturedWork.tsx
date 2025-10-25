@@ -5,18 +5,6 @@ import { ExternalLink } from "lucide-react";
 const FeaturedWork = () => {
   const featuredProjects = [
     {
-      id: 1,
-      title: "NEET 2024 Paper Leak: Maharashtra Connection",
-      category: "neet-paper-leak",
-      publication: "The Publicat",
-      date: "Jun 2024",
-      tags: ["NEET", "Paper Leak", "Education Scandal", "Supreme Court", "Students"],
-      description: "Investigation into the Maharashtra connection in the NEET paper leak case, uncovering the network behind the scandal.",
-      readTime: "8 min read",
-      image: "/images/neet-investigation.jpg",
-      link: "https://thepublicat.com/%e0%a4%aa%e0%a5%87%e0%a4%aa%e0%a4%b0-%e0%a4%b2%e0%a5%80%e0%a4%95-%e0%a4%ae%e0%a4%be%e0%a4%ae%e0%a4%b2%e0%a5%87-%e0%a4%ae%e0%a5%87%e0%a4%82-%e0%a4%ae%e0%a4%b9%e0%a4%be%e0%a4%b0%e0%a4%be%e0%a4%b7/?fbclid=PAQ0xDSwKtJAdleHRuA2FlbQIxMQABp9umSzy8mvl-JvK5vlEtm0HMXoQWpkoB8Z4qclpMdGpQw50SD-bZFYHC1ZWc_aem_nO6ayOrbozdHZXcIt3Aqow"
-    },
-    {
       id: 2,
       title: "Operation Sindoor: Counter-Terrorism Success",
       category: "news-reports",
@@ -25,32 +13,8 @@ const FeaturedWork = () => {
       tags: ["Defense", "Security", "Women Leaders", "Military", "Terrorism"],
       description: "Exclusive coverage of historic counter-terrorism operations led by Colonel Sofiya Qureshi and Wing Commander Vyomika Singh.",
       readTime: "5 min read",
-      image: "/images/operation-sindoor.jpg",
+      image: "/images/operation-sindoor.png",
       link: "https://www.shekunj.com/article/news/operation-sindoor-colonel-sofiya-qureshi-and-wing-commander-vyomika-singh-lead-historic-strikes-against-terrorism"
-    },
-    {
-      id: 3,
-      title: "CBI Investigation in NEET Paper Leak Case",
-      category: "neet-paper-leak",
-      publication: "The Publicat",
-      date: "Jul 2024",
-      tags: ["NEET", "CBI", "Investigation", "Paper Leak", "Supreme Court"],
-      description: "Detailed report on CBI's involvement in the NEET paper leak investigation and their findings.",
-      readTime: "7 min read",
-      image: "/images/neet-cbi.jpg",
-      link: "https://thepublicat.com/neet-%e0%a4%aa%e0%a5%87%e0%a4%aa%e0%a4%b0-%e0%a4%b2%e0%a5%80%e0%a4%95-%e0%a4%ae%e0%a4%be%e0%a4%ae%e0%a4%b2%e0%a5%87-%e0%a4%ae%e0%a5%87%e0%a4%82-cbi-%e0%a4%95%e0%a5%80-%e0%a4%95%e0%a4%be%e0%a4%b0/?fbclid=PAQ0xDSwKtJJ5leHRuA2FlbQIxMQABp6H6BJcQI9AU28DIFcRwXxp0QPwkbUCc8LAh3p8kcNPfC4emeX_3AtcmOPAQ_aem_x8dhhoFQRCFW68gEoiFpFQ"
-    },
-    {
-      id: 4,
-      title: "UPSC Toppers 2025: Shakti Dubey & Harshita Goyal",
-      category: "feature-human-stories",
-      publication: "Shekunj",
-      date: "Jan 2025",
-      tags: ["UPSC", "Success Stories", "Civil Services", "Education", "Achievers"],
-      description: "In-depth profiles of UPSC toppers, exploring their preparation strategies, personal journeys, and aspirations for public service.",
-      readTime: "6 min read",
-      image: "/images/upsc-toppers.jpg",
-      link: "https://www.shekunj.com/article/education/meet-the-upsc-toppers-2025-shakti-dubey-air-1-harshita-goyal-air-2-more"
     },
     {
       id: 5,
@@ -65,6 +29,42 @@ const FeaturedWork = () => {
       link: "https://www.shekunj.com/article/news/smita-sabharwal-the-inspirational-ias-officer-redefining-indian-bureaucracy"
     },
     {
+      id: 4,
+      title: "UPSC Toppers 2025: Shakti Dubey & Harshita Goyal",
+      category: "feature-human-stories",
+      publication: "Shekunj",
+      date: "Jan 2025",
+      tags: ["UPSC", "Success Stories", "Civil Services", "Education", "Achievers"],
+      description: "In-depth profiles of UPSC toppers, exploring their preparation strategies, personal journeys, and aspirations for public service.",
+      readTime: "6 min read",
+      image: "/images/upsc-toppers.jpg",
+      link: "https://www.shekunj.com/article/education/meet-the-upsc-toppers-2025-shakti-dubey-air-1-harshita-goyal-air-2-more"
+    },
+    {
+      id: 3,
+      title: "CBI Investigation in NEET Paper Leak Case",
+      category: "neet-paper-leak",
+      publication: "The Publicat",
+      date: "Jul 2024",
+      tags: ["NEET", "CBI", "Investigation", "Paper Leak", "Supreme Court"],
+      description: "Detailed report on CBI's involvement in the NEET paper leak investigation and their findings.",
+      readTime: "7 min read",
+      image: "/images/neet-cbi.jpg",
+      link: "https://thepublicat.com/neet-%e0%a4%aa%e0%a5%87%e0%a4%aa%e0%a4%b0-%e0%a4%b2%e0%a5%80%e0%a4%95-%e0%a4%ae%e0%a4%be%e0%a4%ae%e0%a4%b2%e0%a5%87-%e0%a4%ae%e0%a5%87%e0%a4%82-cbi-%e0%a4%95%e0%a5%80-%e0%a4%95%e0%a4%be%e0%a4%b0/?fbclid=PAQ0xDSwKtJJ5leHRuA2FlbQIxMQABp6H6BJcQI9AU28DIFcRwXxp0QPwkbUCc8LAh3p8kcNPfC4emeX_3AtcmOPAQ_aem_x8dhhoFQRCFW68gEoiFpFQ"
+    },
+    {
+      id: 1,
+      title: "NEET 2024 Paper Leak: Maharashtra Connection",
+      category: "neet-paper-leak",
+      publication: "The Publicat",
+      date: "Jun 2024",
+      tags: ["NEET", "Paper Leak", "Education Scandal", "Supreme Court", "Students"],
+      description: "Investigation into the Maharashtra connection in the NEET paper leak case, uncovering the network behind the scandal.",
+      readTime: "8 min read",
+      image: "/images/neet-investigation.jpg",
+      link: "https://thepublicat.com/%e0%a4%aa%e0%a5%87%e0%a4%aa%e0%a4%b0-%e0%a4%b2%e0%a5%80%e0%a4%95-%e0%a4%ae%e0%a4%be%e0%a4%ae%e0%a4%b2%e0%a5%87-%e0%a4%ae%e0%a5%87%e0%a4%82-%e0%a4%ae%e0%a4%b9%e0%a4%be%e0%a4%b0%e0%a4%be%e0%a4%b7/?fbclid=PAQ0xDSwKtJAdleHRuA2FlbQIxMQABp9umSzy8mvl-JvK5vlEtm0HMXoQWpkoB8Z4qclpMdGpQw50SD-bZFYHC1ZWc_aem_nO6ayOrbozdHZXcIt3Aqow"
+    },
+    {
       id: 6,
       title: "Narmadapuram PWD Corruption Exposé",
       category: "field-reports",
@@ -73,7 +73,7 @@ const FeaturedWork = () => {
       tags: ["Corruption", "Investigation", "Public Works", "Lok Yukta", "Madhya Pradesh"],
       description: "Field report on corruption in public works department, based on Lok Yukta's operation and ground-level investigation.",
       readTime: "6 min read",
-      image: "/images/pwd-corruption.jpg",
+      image: "/images/pwd-corruption.png",
       link: "https://journalistav.com/narmadapuram-pwd-engineer-was-taking-huge-amount-in-return-for-work-lok-yukta-team-caught-him-red-handed/?fbclid=PAQ0xDSwKtZG5leHRuA2FlbQIxMAABp7sJDclUVLdtHNYpcnqCzpwaCC0ren4IjdkRKiD5R_FiishDZY1ydYODCCEA_aem_tXtrJJWHiZLFJXwgYhOQRg"
     }
   ];
