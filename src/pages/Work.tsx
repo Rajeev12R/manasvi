@@ -1,5 +1,5 @@
 import { useState, useMemo, useEffect, useRef } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import ContactCTA from "@/components/ContactCTA";
@@ -17,7 +17,7 @@ export const allProjects = [
     tags: ["Environment", "Wetlands", "Biodiversity", "Climate", "Conservation", "Film Festival"],
     description: "A national-level environmental film festival and forum held in Indore, Madhya Pradesh, bringing together filmmakers, conservationists, policymakers, and citizens to highlight the importance of wetlands and biodiversity through powerful visual storytelling.",
     readTime: "Event Coverage",
-    image: "wetlands_for_life_banner.jpg",
+    image: "/images/wetland.jpeg",
     video: documentaryVideo,
     link: "#"
   },
@@ -1118,10 +1118,14 @@ export const categories = [
 ];
 
 const Work = () => {
+  const { categoryId } = useParams();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
-  const [selectedCategory, setSelectedCategory] = useState("all");
-  const [currentView, setCurrentView] = useState<"categories" | "articles">("categories");
+
+  // Derived state from URL parameter
+  const selectedCategory = categoryId || "all";
+  const currentView = categoryId ? "articles" : "categories";
+
   const [visibleCount, setVisibleCount] = useState(10);
   const observerTarget = useRef(null);
 
@@ -1175,22 +1179,20 @@ const Work = () => {
     }
   };
 
-  const handleCategoryClick = (categoryId: string) => {
-    setSelectedCategory(categoryId);
-    setCurrentView("articles");
+  const handleCategoryClick = (id: string) => {
+    navigate(`/work/${id}`);
     window.scrollTo(0, 0);
   };
 
   const handleBackToCategories = () => {
-    setCurrentView("categories");
-    setSelectedCategory("all");
+    navigate("/work");
     setSearchTerm("");
     window.scrollTo(0, 0);
   };
 
   const clearFilters = () => {
     setSearchTerm("");
-    setSelectedCategory("all");
+    navigate("/work");
   };
 
   const currentCategory = categories.find(cat => cat.id === selectedCategory);
@@ -1319,6 +1321,7 @@ const Work = () => {
                         {project.video ? (
                           <video
                             src={project.video}
+                            poster={project.image}
                             className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                             controls
                             muted
