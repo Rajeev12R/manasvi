@@ -6,8 +6,9 @@ dotenv.config({});
 
 const app = express();
 app.use(cors({
-  origin: ["http://localhost:5173", "https://manasvi-mu.vercel.app/", "https://manasvi-rathore.vercel.app/", "https://manasvi-rathore.vercel.app/contact"],
-  methods: ["POST"]
+  origin: ["http://localhost:5173", "https://manasvi-mu.vercel.app", "https://manasvi-rathore.vercel.app"],
+  methods: ["POST", "OPTIONS"],
+  credentials: true
 }));
 
 
