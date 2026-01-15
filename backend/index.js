@@ -6,7 +6,7 @@ dotenv.config({});
 
 const app = express();
 app.use(cors({
-  origin: ["http://localhost:5173", "https://manasvi-mu.vercel.app/"],
+  origin: ["http://localhost:5173", "https://manasvi-mu.vercel.app/", "https://manasvi-rathore.vercel.app/"],
   methods: ["POST"]
 }));
 
@@ -35,16 +35,22 @@ app.post("/send", async (req, res) => {
 
     // Email options
     const mailOptions = {
-      from: `"${name}" <${email}>`,
-      to: process.env.EMAIL_RECEIVER, // your receiving email
+      from: `"${name}" <${process.env.EMAIL_USER}>`, // Gmail requires the sender to be the authenticated user
+      replyTo: email,
+      to: process.env.EMAIL_RECEIVER,
       subject: subject || "New Contact Form Submission",
-      text: message,
-      html: `<p>${message}</p><br/><p>From: ${name} (${email})</p>`,
+      text: `Message from ${name} (${email}):\n\n${message}`,
+      html: `<p><strong>Name:</strong> ${name}</p><p><strong>Email:</strong> ${email}</p><p><strong>Message:</strong></p><p>${message}</p>`,
     };
 
-    await transporter.sendMail(mailOptions);
+    console.log("Attempting to send email...");
+    console.log("From:", mailOptions.from);
+    console.log("To:", mailOptions.to);
 
-    res.status(200).json({ message: "Email sent successfully!" });
+    const info = await transporter.sendMail(mailOptions);
+    console.log("Email sent successfully!");
+
+    res.status(200).json({ message: "Email sent successfully!", messageId: info.messageId });
   } catch (error) {
     console.error(error);
     res.status(500).json({ error: "Failed to send email" });
