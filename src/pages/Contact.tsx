@@ -47,145 +47,148 @@ const Contact = () => {
     <div className="min-h-screen">
       <Navigation />
       <main>
-        <section className="pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-20 px-4 sm:px-6 lg:px-8">
-          <div className="container mx-auto max-w-4xl">
+        <section className="pt-24 sm:pt-32 pb-20 px-6 relative overflow-hidden">
+          {/* Decorative background element */}
+          <div className="absolute top-0 right-0 w-1/3 h-full bg-linear-to-b from-secondary/30 to-transparent -z-10 opacity-60" />
+
+          <div className="container mx-auto max-w-5xl">
             {/* Header Section */}
-            <div className="text-center mb-12 sm:mb-16">
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl mb-4 sm:mb-6 leading-tight">
-                Let's Connect
+            <div className="text-center mb-16 lg:mb-24">
+              <span className="text-accent-dark font-medium tracking-widest uppercase text-sm mb-4 block">
+                Get in Touch
+              </span>
+              <h1 className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl mb-6 text-foreground leading-[1.1]">
+                Let's start a conversation.
               </h1>
-              <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-                Have a story worth telling, an idea to collaborate on, or an opportunity to discuss?  
-                I'd love to hear from you.
+              <p className="text-xl text-muted-foreground font-light max-w-2xl mx-auto">
+                Have a story worth telling, an idea to collaborate on, or an opportunity to discuss?
               </p>
             </div>
 
-            {/* Main Content Grid */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 sm:gap-10 lg:gap-12">
-              {/* Left Column - Information */}
-              <div className="space-y-6 sm:space-y-8 order-2 lg:order-1">
-                <div>
-                  <h2 className="font-serif text-2xl sm:text-3xl mb-4 sm:mb-6">How We Can Work Together</h2>
-                  <div className="space-y-4 sm:space-y-6 text-muted-foreground">
-                    <div className="space-y-2">
-                      <p className="font-semibold text-foreground text-base sm:text-lg">
-                        1. Story Features & Collaborations
-                      </p>
-                      <p className="text-sm sm:text-base leading-relaxed">
-                        Reach out if you have a story that deserves a platform or wish to collaborate on meaningful coverage.
-                      </p>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <p className="font-semibold text-foreground text-base sm:text-lg">
-                        2. Media & Voice Work
-                      </p>
-                      <p className="text-sm sm:text-base leading-relaxed">
-                        Available for anchoring, narration, and voiceover projects for news, short films, or campaigns.
-                      </p>
-                    </div>
-                    
-                    <div className="space-y-2">
-                      <p className="font-semibold text-foreground text-base sm:text-lg">
-                        3. Writing & Research
-                      </p>
-                      <p className="text-sm sm:text-base leading-relaxed">
-                        Open to editorial, digital, and creative writing projects that align with truth and storytelling.
-                      </p>
-                    </div>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20">
+
+              {/* Left Column - Contact Info & Context (5 cols) */}
+              <div className="lg:col-span-5 space-y-12">
+                <div className="space-y-8">
+                  <h2 className="font-serif text-3xl text-foreground">How we can work together</h2>
+
+                  <div className="space-y-8">
+                    {[
+                      {
+                        title: "Story Features",
+                        desc: "Share stories that deserve a platform covering culture, society, and human experiences."
+                      },
+                      {
+                        title: "Media & Voice",
+                        desc: "Available for anchoring, narration, and voiceover projects for various media formats."
+                      },
+                      {
+                        title: "Collaborations",
+                        desc: "Open to partnerships with brands, NGOs, and creative teams for impactful projects."
+                      }
+                    ].map((item, i) => (
+                      <div key={i} className="group">
+                        <h3 className="text-lg font-medium text-foreground mb-2 group-hover:text-accent-dark transition-colors">{item.title}</h3>
+                        <p className="text-muted-foreground leading-relaxed font-light">{item.desc}</p>
+                      </div>
+                    ))}
                   </div>
                 </div>
 
-                {/* Availability Section */}
-                <div className="bg-teal-light p-6 sm:p-8 rounded-sm space-y-3 sm:space-y-4">
-                  <h3 className="font-serif text-xl sm:text-2xl">Current Availability</h3>
-                  <p className="text-sm sm:text-base leading-relaxed">
-                    I'm currently open for collaborations, freelance assignments, and media projects.  
-                    Feel free to reach out — I usually respond within 2–3 days.
-                  </p>
-                </div>
-
-                {/* Contact Info */}
-                <div className="space-y-3 sm:space-y-4">
-                  <h3 className="font-serif text-xl sm:text-2xl">Direct Contact</h3>
-                  <div className="space-y-2 text-sm sm:text-base text-muted-foreground">
-                    <p>Email: jiya21rathore@gmail.com</p>
-                    <p>Based in: Indore, Madhya Pradesh</p>
-                  </div>
-                </div>
-              </div>
-
-              {/* Right Column - Contact Form */}
-              <div className="bg-card p-6 sm:p-8 rounded-sm border border-border order-1 lg:order-2">
-                <form className="space-y-4 sm:space-y-6" onSubmit={handleSubmit}>
-                  <div className="space-y-2">
-                    <Label htmlFor="name" className="text-sm sm:text-base">Name *</Label>
-                    <Input 
-                      id="name" 
-                      placeholder="Your name" 
-                      value={formData.name} 
-                      onChange={handleChange} 
-                      required 
-                      className="text-sm sm:text-base py-2 sm:py-3"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="email" className="text-sm sm:text-base">Email *</Label>
-                    <Input 
-                      id="email" 
-                      type="email" 
-                      placeholder="your@email.com" 
-                      value={formData.email} 
-                      onChange={handleChange} 
-                      required 
-                      className="text-sm sm:text-base py-2 sm:py-3"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="subject" className="text-sm sm:text-base">Subject</Label>
-                    <Input 
-                      id="subject" 
-                      placeholder="Interview, collaboration, project..." 
-                      value={formData.subject} 
-                      onChange={handleChange} 
-                      className="text-sm sm:text-base py-2 sm:py-3"
-                    />
-                  </div>
-
-                  <div className="space-y-2">
-                    <Label htmlFor="message" className="text-sm sm:text-base">Message *</Label>
-                    <Textarea 
-                      id="message" 
-                      placeholder="Tell me a bit about your story, idea, or project." 
-                      rows={5} 
-                      value={formData.message} 
-                      onChange={handleChange} 
-                      required 
-                      className="text-sm sm:text-base resize-vertical min-h-[120px]"
-                    />
-                  </div>
-
-                  <Button 
-                    type="submit"
-                    size="lg"
-                    className="w-full bg-teal hover:bg-teal/90 text-white font-medium tracking-wide uppercase text-sm sm:text-base py-3 sm:py-4"
-                  >
-                    Send Message
-                  </Button>
-                  
-                  {status && (
-                    <p className={`text-center text-sm sm:text-base mt-2 ${
-                      status.includes("successfully") ? "text-green-600" : 
-                      status.includes("Sending") ? "text-blue-600" : 
-                      "text-red-600"
-                    }`}>
-                      {status}
+                <div className="pt-8 border-t border-border/50">
+                  <h3 className="font-serif text-2xl mb-4 text-foreground">Connect Directly</h3>
+                  <div className="space-y-2 text-muted-foreground">
+                    <p className="flex items-center gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent-dark"></span>
+                      jiya21rathore@gmail.com
                     </p>
-                  )}
-                </form>
+                    <p className="flex items-center gap-3">
+                      <span className="w-1.5 h-1.5 rounded-full bg-accent-dark"></span>
+                      Indore, Madhya Pradesh
+                    </p>
+                  </div>
+                  <div className="mt-6 text-sm text-accent-dark italic font-medium">
+                    Response time: Usually within 2-3 days
+                  </div>
+                </div>
               </div>
+
+              {/* Right Column - Form (7 cols) */}
+              <div className="lg:col-span-7">
+                <div className="bg-card p-8 md:p-10 rounded-3xl shadow-sm border border-border/40 hover:shadow-xl transition-shadow duration-500">
+                  <form className="space-y-8" onSubmit={handleSubmit}>
+                    <div className="grid md:grid-cols-2 gap-8">
+                      <div className="space-y-2">
+                        <Label htmlFor="name" className="text-foreground font-medium">Name</Label>
+                        <Input
+                          id="name"
+                          placeholder="Jane Doe"
+                          value={formData.name}
+                          onChange={handleChange}
+                          required
+                          className="bg-secondary/30 border-transparent focus:bg-background focus:border-accent-dark transition-all h-12 px-4 rounded-xl"
+                        />
+                      </div>
+                      <div className="space-y-2">
+                        <Label htmlFor="email" className="text-foreground font-medium">Email</Label>
+                        <Input
+                          id="email"
+                          type="email"
+                          placeholder="jane@example.com"
+                          value={formData.email}
+                          onChange={handleChange}
+                          required
+                          className="bg-secondary/30 border-transparent focus:bg-background focus:border-accent-dark transition-all h-12 px-4 rounded-xl"
+                        />
+                      </div>
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="subject" className="text-foreground font-medium">Subject</Label>
+                      <Input
+                        id="subject"
+                        placeholder="Collaboration proposal..."
+                        value={formData.subject}
+                        onChange={handleChange}
+                        className="bg-secondary/30 border-transparent focus:bg-background focus:border-accent-dark transition-all h-12 px-4 rounded-xl"
+                      />
+                    </div>
+
+                    <div className="space-y-2">
+                      <Label htmlFor="message" className="text-foreground font-medium">Message</Label>
+                      <Textarea
+                        id="message"
+                        placeholder="Tell me about your project or idea..."
+                        rows={6}
+                        value={formData.message}
+                        onChange={handleChange}
+                        required
+                        className="bg-secondary/30 border-transparent focus:bg-background focus:border-accent-dark transition-all resize-none p-4 rounded-xl min-h-[160px]"
+                      />
+                    </div>
+
+                    <div className="flex items-center justify-between pt-2">
+                      <Button
+                        type="submit"
+                        size="lg"
+                        className="w-full bg-foreground text-background hover:bg-foreground/90 font-medium tracking-wide uppercase text-sm py-6 rounded-xl shadow-lg hover:shadow-xl transition-all hover:-translate-y-1"
+                      >
+                        Send Message
+                      </Button>
+                    </div>
+
+                    {status && (
+                      <div className={`p-4 rounded-xl text-center text-sm font-medium ${status.includes("successfully") ? "bg-green-50 text-green-700" :
+                        status.includes("Sending") ? "bg-blue-50 text-blue-700" :
+                          "bg-red-50 text-red-700"
+                        }`}>
+                        {status}
+                      </div>
+                    )}
+                  </form>
+                </div>
+              </div>
+
             </div>
           </div>
         </section>

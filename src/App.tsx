@@ -6,9 +6,12 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
+import ArticleDetail from "./pages/ArticleDetail";
 import Work from "./pages/Work";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import ScrollToTop from "./components/ScrollToTop";
+import BackToTopButton from "./components/BackToTopButton";
 
 const queryClient = new QueryClient();
 
@@ -18,11 +21,14 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
+        <BackToTopButton />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/work" element={<Work />} />
+          <Route path="/article/:id" element={<ArticleDetail />} />
           <Route path="/contact" element={<Contact />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />

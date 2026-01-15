@@ -78,10 +78,10 @@ const Services = () => {
               ))}
             </div>
 
-            <div className="mt-16 bg-teal-light p-12 rounded-sm text-center space-y-6">
-              <h2 className="font-serif text-3xl">Open to Collaborations</h2>
-              <p className="text-lg max-w-2xl mx-auto">
-                Whether it’s a story, campaign, documentary, or digital feature — I’m open to working with organizations and creators who believe in impactful storytelling.  
+            <div className="mt-16 bg-secondary/40 p-12 rounded-xl text-center space-y-6 border border-border/50">
+              <h2 className="font-serif text-3xl text-foreground">Open to Collaborations</h2>
+              <p className="text-lg max-w-2xl mx-auto text-muted-foreground leading-relaxed">
+                Whether it’s a story, campaign, documentary, or digital feature — I’m open to working with organizations and creators who believe in impactful storytelling.
                 Let’s create something meaningful together.
               </p>
             </div>

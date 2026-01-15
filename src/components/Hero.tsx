@@ -5,54 +5,83 @@ import heroWorkspace from "@/assets/hero-workspace5.jpg";
 
 const Hero = () => {
   return (
-    <section className="min-h-screen pt-32 pb-20 px-6 relative">
-      <div className="container mx-auto max-w-7xl">
-        <div className="flex flex-col lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          {/* Hero Text - Comes First on Mobile */}
-          <div className="order-1 lg:order-2 text-center lg:text-left w-full">
-            <div className="space-y-6">
-              <h1 className="font-serif text-3xl sm:text-4xl md:text-5xl lg:text-6xl leading-tight">
-                Connecting voices with the stories that matter.
-              </h1>
-              <p className="text-base sm:text-lg text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto lg:mx-0">
-                Insightful journalism and media storytelling, crafted with integrity and creativity for real impact.
-              </p>
-            </div>
+    <section className="min-h-screen pt-32 pb-20 px-6 flex items-center justify-center relative overflow-hidden">
+      {/* Background Accent */}
+      <div className="hidden md:block absolute top-0 right-0 w-1/3 h-full bg-linear-to-b from-secondary to-transparent -z-10 opacity-50" />
 
-            <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start mt-8">
-              <Button 
-                asChild
-                size="lg"
-                className="bg-cream text-foreground hover:bg-muted font-medium tracking-wide uppercase text-sm px-6 sm:px-8"
-              >
-                <Link to="/work">See the Work</Link>
-              </Button>
-            </div>
+      <div className="container mx-auto max-w-6xl">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-20 items-center">
+
+          {/* 1. Hero Text (Headings) */}
+          <div className="text-center md:text-left space-y-8 animate-fade-in-up md:col-start-1 md:row-start-1 md:self-end">
+            <h1 className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl leading-[1.1] tracking-tight text-foreground">
+              <span className="md:block md:whitespace-nowrap">Connecting voices</span>
+              <span className="md:block md:whitespace-nowrap ml-1">with stories that</span>
+              <span className="md:block md:whitespace-nowrap ml-2"><span className="italic text-accent-dark">matter</span>.</span>
+            </h1>
+
+            <p className="text-base sm:text-lg md:text-xl text-muted-foreground font-light leading-relaxed max-w-2xl mx-auto md:mx-0">
+              Insightful journalism and media storytelling, crafted with integrity, depth, and a touch of creativity.
+            </p>
           </div>
 
-          {/* Images Collage - Comes Second on Mobile */}
-          <div className="relative order-2 lg:order-1 w-full mt-8 lg:mt-0">
+          {/* 2. Hero Images Composition 
+              Mobile: Appears 2nd (after text, before buttons)
+              Desktop: Right column, spans 2 rows
+          */}
+          <div className="w-full max-w-md md:max-w-full relative animate-fade-in-up delay-100 md:col-start-2 md:row-span-2 md:row-start-1 order-last md:order-none"> {/* Applied order-last trick if needed, but DOM order is clearer */}
+            {/* Actually, if I place this strictly in DOM order 2, it will be 2nd on mobile. 
+               Text (1) -> Image (2) -> Buttons (3). This is exact mobile request.
+               Desktop: Text (1,1), Image (2, 1-2), Buttons (1, 2). This works perfectly with Grid provided I place them in standard flow or explicit placement.
+           */}
             {/* Main Image */}
-            <div className="relative z-10 w-full max-w-xs sm:max-w-sm md:max-w-md mx-auto lg:mx-0">
-              <img 
-                src={jiya1} 
-                alt="Professional working at desk" 
-                className="w-full rounded-sm shadow-lg"
+            <div className="premium-border relative z-10 aspect-[3/4] md:aspect-square overflow-hidden rounded-2xl w-3/4 mx-auto md:mr-0 md:ml-auto ring-1 ring-white/50">
+              <img
+                src={jiya1}
+                alt="Manasvi Rathore"
+                className="w-full h-full object-cover hover:scale-105 transition-transform duration-1000 ease-out"
               />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent pointer-events-none" />
             </div>
-            
-            {/* Overlay Image - Smaller on Mobile */}
-            <div className="absolute -bottom-4 -right-2 sm:-bottom-6 sm:-right-4 lg:-bottom-8 lg:right-4 w-32 h-32 sm:w-48 sm:h-48 lg:w-64 lg:h-64 z-20">
-              <img 
-                src={heroWorkspace}
-                alt="Minimal workspace" 
-                className="w-full h-full object-cover rounded-sm shadow-lg"
-              />
+
+            {/* Secondary Image Overlay */}
+            <div className="absolute -bottom-8 left-4 md:-bottom-12 md:-left-8 w-40 h-40 md:w-56 md:h-56 z-20">
+              <div className="premium-border w-full h-full rounded-2xl overflow-hidden border-4 border-background animate-fade-in-up delay-200 ring-1 ring-black/5">
+                <img
+                  src={heroWorkspace}
+                  alt="Workspace"
+                  className="w-full h-full object-cover hover:scale-110 transition-transform duration-700"
+                />
+              </div>
             </div>
-            
-            {/* Background decorative element */}
-            <div className="absolute -top-2 -left-2 sm:-top-4 sm:-left-4 w-20 h-20 sm:w-32 sm:h-32 bg-accent/10 rounded-full -z-10" />
+
+            {/* Decorative Elements */}
+            <div className="absolute -top-12 -right-12 w-64 h-64 rounded-full bg-accent/10 -z-10 blur-3xl animate-pulse-slow" />
+            <div className="absolute bottom-0 left-0 w-48 h-48 rounded-full bg-primary/5 -z-10 blur-3xl" />
           </div>
+
+          {/* 3. CTA Buttons 
+             Mobile: Appears 3rd (after image)
+             Desktop: Left column, row 2 (under text)
+          */}
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start pt-2 md:pt-0 md:-mt-8 md:col-start-1 md:row-start-2 md:self-start">
+            <Button
+              asChild
+              size="lg"
+              className="bg-foreground text-background hover:bg-foreground/80 rounded-full px-8 h-12 text-sm font-medium tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:-translate-y-0.5"
+            >
+              <Link to="/work">View Latest Work</Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-foreground/20 text-foreground hover:bg-secondary rounded-full px-8 h-12 text-sm font-medium tracking-wide transition-all duration-300"
+            >
+              <Link to="/contact">Get in Touch</Link>
+            </Button>
+          </div>
+
         </div>
       </div>
     </section>
