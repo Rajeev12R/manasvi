@@ -1,8 +1,8 @@
 const ClientLogos = () => {
   const clients = [
     { name: "Shekunj Foundation", link: "https://www.shekunj.com/" },
-    { name: "The Journalist", link: "https://www.thejournalist.org.za/" },
-    { name: "OctaHire", link: "https://www.octahire.com/" },
+    { name: "The Journalist", link: "https://journalistav.com/" },
+    { name: "OctaHire", link: "https://www.linkedin.com/company/octa-hire/posts/?feedView=all" },
     { name: "94.3 MY FM", link: "https://myfmindia.com/" },
     { name: "Lit chowk", link: "https://litchowk.com/" },
     { name: "The Publicat", link: "https://thepublicat.com/" },

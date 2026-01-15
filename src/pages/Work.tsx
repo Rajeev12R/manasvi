@@ -695,7 +695,7 @@ export const allProjects = [
     tags: ["Startups", "Service", "Innovation", "Snabbit", "Convenience"],
     description: "Aayush Agarwal's Snabbit is revolutionizing home services with its promise of a 15-minute delivery revolution.",
     readTime: "5 min read",
-    image: null,
+    image: "/images/ayushagrawal.jpg",
     link: "https://shekunj.com/article/startup-and-business/snabbit-15-minute-revolution-aayush-agarwal-instant-home-services?fbclid=PAb21jcANrBONleHRuA2FlbQIxMQABp0GfBgIljJYik43zQzrCVAWj8zpmYZDSbwx6Az9rZLmU0r0zaKnN3kDTpqde_aem_8RjPlxJszim2k-a0fhLHBA"
   },
   {
