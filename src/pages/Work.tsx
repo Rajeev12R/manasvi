@@ -175,7 +175,7 @@ export const allProjects = [
   {
     id: 14,
     title: "Narmadapuram PWD Corruption Exposé",
-    category: "field-reports",
+    category: "news-reports",
     publication: "JournalistAV",
     date: "Aug 2024",
     tags: ["Corruption", "Investigation", "Public Works", "Lok Yukta", "Madhya Pradesh"],
@@ -935,6 +935,8 @@ export const allProjects = [
     publication: "The Publicat",
     date: "2024",
     tags: ["Results", "Debate", "Students", "Mazin", "Viral"],
+    description: "Report on the revised NEET UG 2024 results of Mazin Mansoor, who initially scored a perfect 720/720, and the subsequent changes in his All India Rank.",
+    readTime: "4 min read",
     image: "/images/marginscore.png",
     link: "https://thepublicat.com/?p=3065"
   },
@@ -1093,13 +1095,6 @@ export const categories = [
     description: "On-ground reporting and investigations from various locations and situations."
   },
   {
-    id: "digital-journalism",
-    name: "Digital Journalism",
-    count: allProjects.filter(p => p.category === "digital-journalism").length,
-    image: "/images/digitaljournalism.jpg",
-    description: "Digital-first storytelling and multimedia journalism projects."
-  },
-  {
     id: "print-publications",
     name: "Print Publications",
     count: allProjects.filter(p => p.category === "print-publications").length,
@@ -1108,7 +1103,7 @@ export const categories = [
   },
   {
     id: "digital-video-audio",
-    name: "Digital Video and Audio Stories",
+    name: "Digital Journalism",
     count: allProjects.filter(p => p.category === "digital-video-audio").length,
     image: "/images/audio_and_video.jpg",
     description: "Multimedia storytelling through video documentaries and audio podcasts."
@@ -1183,12 +1178,14 @@ const Work = () => {
   const handleCategoryClick = (categoryId: string) => {
     setSelectedCategory(categoryId);
     setCurrentView("articles");
+    window.scrollTo(0, 0);
   };
 
   const handleBackToCategories = () => {
     setCurrentView("categories");
     setSelectedCategory("all");
     setSearchTerm("");
+    window.scrollTo(0, 0);
   };
 
   const clearFilters = () => {
