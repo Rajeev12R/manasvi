@@ -827,7 +827,7 @@ export const allProjects = [
     tags: ["Politics", "Prime Minister", "Policy", "Education", "Announcement"],
     description: "Prime Minister addresses the nation regarding the NEET and NET examination controversies and announces new measures.",
     readTime: "5 min read",
-    image: null,
+    image: "/images/pmonneet.jpg",
     link: "https://thepublicat.com/%e0%a4%aa%e0%a5%8d%e0%a4%b0%e0%a4%a7%e0%a4%be%e0%a4%a8%e0%a4%ae%e0%a4%82%e0%a4%a6%e0%a5%8d%e0%a4%b0%e0%a5%80-%e0%a4%95%e0%a4%be-%e0%a4%90%e0%a4%b2%e0%a4%be%e0%a4%a8-neet-%e0%a4%94%e0%a4%b0-net/?fbclid=PAQ0xDSwKtJMpleHRuA2FlbQIxMQABp1ewUHLVdf9ApmkltzpB_r5N1YDf2rCKXMikAiNaL112l03gippdLvEfZfHY_aem_QayhwyB04D-arNhCd0mx7A"
   },
   {
@@ -839,7 +839,7 @@ export const allProjects = [
     tags: ["Politics", "Parliament", "Opposition", "Debate", "Education"],
     description: "AAP leader Raghav Chadha strongly raises the issue of NEET irregularities and student rights in the Parliament.",
     readTime: "4 min read",
-    image: null,
+    image: "/images/raghav-chadha.png",
     link: "https://thepublicat.com/%e0%a4%b0%e0%a4%be%e0%a4%98%e0%a4%b5-%e0%a4%9a%e0%a4%a1%e0%a5%8d%e0%a4%a1%e0%a4%be-%e0%a4%a8%e0%a5%87-%e0%a4%b8%e0%a4%82%e0%a4%b8%e0%a4%a6-%e0%a4%ae%e0%a5%87%e0%a4%82-%e0%a4%89%e0%a4%a0%e0%a4%be/?fbclid=PAQ0xDSwKtJNdleHRuA2FlbQIxMQABp0Jg9qi9E5OGCqHP7JjDBgphl4vuMQ6WkUBnVKjDNUworzlAS2qBOJgwnhSj_aem_yzFD_FndTlPazYIRFdxXTA"
   },
   {
