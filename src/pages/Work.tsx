@@ -1000,7 +1000,7 @@ export const allProjects = [
     image: "/images/litchowk.png",
     link: "https://www.instagram.com/reel/CybE9qKsgga/"
   },
-   // 6. Digital journalism
+  // 6. Digital journalism
   {
     id: 101,
     title: "Student Interest in Government Colleges (Bhopal)",
@@ -1010,7 +1010,7 @@ export const allProjects = [
     tags: ["Education", "Bhopal", "Government Colleges", "Student Interest"],
     description: "In-depth look at why student interest is increasing in government colleges in Bhopal and other districts.",
     readTime: "1 min watch",
-    image: "/images/reel-bhopal.jpg",
+    image: "/images/reel-bhopal.png",
     link: "https://www.instagram.com/reel/C9Ro0X0MTAn/"
   },
   {
@@ -1022,7 +1022,7 @@ export const allProjects = [
     tags: ["Education", "Study Tips", "Motivation", "Student Life"],
     description: "Exploring a new way of studying that turns challenges into opportunities for students.",
     readTime: "1 min watch",
-    image: "/images/reel-study-challenge.jpg",
+    image: "/images/reel-study-challenge.png",
     link: "https://www.instagram.com/reel/C9TslfNKTHY/"
   },
   {
@@ -1034,7 +1034,7 @@ export const allProjects = [
     tags: ["Politics", "Budget", "Education", "Madhya Pradesh", "Mohan Yadav"],
     description: "Special attention given to Education in the first budget of the Mohan Yadav government, highlighting new provisions.",
     readTime: "1 min watch",
-    image: "/images/reel-mohan-yadav-budget.jpg",
+    image: "/images/reel-mohan-yadav-budget.png",
     link: "https://www.instagram.com/reel/C9Cpic3oAfJ/"
   },
   // NEW ADDITIONS: From User Images (Print Publications)
