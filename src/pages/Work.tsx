@@ -961,7 +961,7 @@ export const allProjects = [
     tags: ["Education", "CBSE", "Syllabus", "Update", "Students"],
     description: "Explained: Major syllabus changes by CBSE and new guidelines for the 2024 academic session.",
     readTime: "1 min watch",
-    image: "/images/CBSE-Syllabus-Change.png",
+    image: "/images/CBSE-Syllabus-Change.jpg",
     link: "https://www.instagram.com/reel/C9VDoTISK8V/"
   },
   {
