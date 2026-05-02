@@ -6,8 +6,22 @@ import ContactCTA from "@/components/ContactCTA";
 import { ExternalLink, X, ArrowLeft } from "lucide-react";
 
 import documentaryVideo from "@/assets/documentary/documentary_project.mp4";
+import sanandNyasVideo from "@/assets/documentary/Sanand Nyas Team D Documentary.mp4";
 
 export const allProjects = [
+  {
+    id: 1000,
+    title: "Sanand Nyas Team D Documentary",
+    category: "documentary-project",
+    publication: "Manasvi",
+    date: "Apr 2026",
+    tags: ["Documentary", "Sanand Nyas"],
+    description: "An exclusive documentary on Sanand Nyas, Indore's premier cultural organization dedicated to the preservation and promotion of theatre, music, and dance. The film highlights their dedication, artistic discipline, and journey in organizing world-class cultural programs.",
+    readTime: "Video",
+    image: "/images/documentary.jpg",
+    video: sanandNyasVideo,
+    link: "#"
+  },
   {
     id: 999,
     title: "Wetlands for LIFE – Film Festival & Forum 2024",
@@ -1156,6 +1170,15 @@ const Work = () => {
   const { categoryId } = useParams();
   const navigate = useNavigate();
   const [searchTerm, setSearchTerm] = useState("");
+  const [expandedDescIds, setExpandedDescIds] = useState<Record<string | number, boolean>>({});
+
+  const toggleDescription = (e: React.MouseEvent, id: string | number) => {
+    e.stopPropagation();
+    setExpandedDescIds(prev => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
 
   // Derived state from URL parameter
   const selectedCategory = categoryId || "all";
@@ -1405,9 +1428,19 @@ const Work = () => {
                           </div>
                         </div>
 
-                        <p className="text-muted-foreground leading-relaxed line-clamp-2 sm:line-clamp-3 text-sm sm:text-base">
-                          {project.description}
-                        </p>
+                        <div className="flex flex-col items-start">
+                          <p className={`text-muted-foreground leading-relaxed text-sm sm:text-base ${expandedDescIds[project.id] ? '' : 'line-clamp-2 sm:line-clamp-3'}`}>
+                            {project.description}
+                          </p>
+                          {project.description && project.description.length > 100 && (
+                            <button
+                              onClick={(e) => toggleDescription(e, project.id)}
+                              className="text-accent-dark hover:underline text-xs font-medium mt-1"
+                            >
+                              {expandedDescIds[project.id] ? 'See Less' : 'See More'}
+                            </button>
+                          )}
+                        </div>
 
                         <div className="flex flex-wrap gap-1">
                           {project.tags.slice(0, 3).map((tag, tagIndex) => (
